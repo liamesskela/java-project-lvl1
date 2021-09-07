@@ -16,12 +16,12 @@ compileJava {
   options.release = 11
 }
 application {
-  mainClass = 'hexlet.code.App'
+  mainClass = 'hexlet.code.games.App'
 }
 run {
     standardInput = System.in
 }
-group = 'hexlet.code'
+group = 'hexlet.code.games.'
 version = '1.0-SNAPSHOT'
 
 

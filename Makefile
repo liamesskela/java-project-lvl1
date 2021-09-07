@@ -10,5 +10,6 @@ check-updates:
 make lint:
 	./gradlew checkstyleMain
 
+.PHONY: build
 build:
 	./gradlew clean build
