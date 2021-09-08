@@ -25,5 +25,5 @@ https://asciinema.org/a/TJQ1sJDtbJuJOCHJn8b2cKbbz
 
 6 - Prime
 
-https://asciinema.org/a/934wle6YR1T0HjD2BnzSD4z0
+https://asciinema.org/a/vyhpqbWExOGGpk6C5gPVHQB7D
 
