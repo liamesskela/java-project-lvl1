@@ -1,8 +1,8 @@
-package hexlet.code.games;
+package hexlet.code;
 
 import java.util.Scanner;
 
-public class Engine {
+public class Cli {
     public static String hello() {
         System.out.println("Welcome to the Brain Games!");
         Scanner scanName = new Scanner(System.in);
@@ -11,6 +11,4 @@ public class Engine {
         System.out.println("Hello, " + retString + "!");
         return retString;
     }
-
-
 }

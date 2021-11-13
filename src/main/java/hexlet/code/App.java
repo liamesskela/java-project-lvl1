@@ -1,4 +1,6 @@
-package hexlet.code.games;
+package hexlet.code;
+import hexlet.code.games.*;
+
 import java.util.Scanner;
 
 public class App {
@@ -18,7 +20,7 @@ public class App {
     System.out.println();
 
     if (name.equals("1")) {
-      Greet.greeting();
+      Cli.hello();
     }
     if (name.equals("2")) {
       Even.even();
@@ -35,8 +37,5 @@ public class App {
     if (name.equals("6")) {
       Prime.prime();
     }
-
-//    if (name.equals("0")) {
-//    }
   }
 }
