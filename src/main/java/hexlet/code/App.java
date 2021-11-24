@@ -37,6 +37,8 @@ public class App {
       case "6":
         Prime.prime();
         break;
+      case "0":
+        break;
     }
   }
 }
