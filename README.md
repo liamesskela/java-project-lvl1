@@ -3,8 +3,6 @@
 
 <a href="https://codeclimate.com/github/liamesskela/java-project-lvl1/maintainability"><img src="https://api.codeclimate.com/v1/badges/7f2f9313f99852fdb7f2/maintainability" /></a>
 
-[![hexlet-check](https://github.com/liamesskela/java-project-lvl1/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/liamesskela/java-project-lvl1/actions/workflows/hexlet-check.yml)
-
 1 - Greet 
 
 https://asciinema.org/a/KKHaMhP9GEBYAyMsDgTyKzYkR
