@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Even {
@@ -17,20 +18,23 @@ public class Even {
             System.out.println("Question: " + rnd);
             System.out.print("Your answer: ");
             String name = scanRnd.nextLine();
-
             int numRnd = rnd % 2;
-            if (name.equals("yes") && numRnd == 0) {
-                    System.out.println("Correct!");
-                    k++;
+            if ((name.equals("yes") && numRnd == 0) || (name.equals("no") && numRnd != 0)) {
+                System.out.println("Correct!");
+                k++;
             }
-            if (name.equals("no") && numRnd != 0) {
-                    System.out.println("Correct!");
-                    k++;
-            }
+
             if (!name.equals("yes") && numRnd == 0  || !name.equals("no") && numRnd != 0) {
-                System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.\n"
-                        + "Let's try again, " + returnName + "!");
-                break;
+                if (name.equals("yes")) {
+                    System.out.println("'" + name + "' is wrong answer ;(. Correct answer was 'no'.\n"
+                            + "Let's try again, " + returnName + "!");
+                    break;
+                }
+                if (name.equals("no")) {
+                    System.out.println("'" + name + "' is wrong answer ;(. Correct answer was 'yes'.\n"
+                            + "Let's try again, " + returnName + "!");
+                    break;
+                }
             }
         }
         if (k == count) {
