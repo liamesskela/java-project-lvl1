@@ -28,7 +28,7 @@ public class Even {
                     k++;
             }
             if (!name.equals("yes") && numRnd == 0  || !name.equals("no") && numRnd != 0) {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.\n"
+                System.out.println("'no' is wrong answer ;(. Correct answer was 'yes'.\n"
                         + "Let's try again, " + returnName + "!");
                 break;
             }
