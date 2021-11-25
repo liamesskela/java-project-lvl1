@@ -36,6 +36,8 @@ public class App {
     if (name.equals("6")) {
       Prime.prime();
     }
+    if (name.equals("0")) {
+    }
 //    switch(name) {
 //      case "1":
 //        Cli.hello();

@@ -39,8 +39,9 @@ public class Even {
             }
 
             if (!name.equals("yes") && numRnd == 0  || !name.equals("no") && numRnd != 0) {
-                    System.out.println("'" + name + "' is wrong answer ;(. Correct answer was " + "'" +(flag == 1 ? "yes" : "no")+ "'" + ".\n"
-                            + "Let's try again, " + returnName + "!");
+                    System.out.println("'" + name + "' is wrong answer ;(. Correct answer was "
+                            + "'" +(flag == 1 ? "yes" : "no")+ "'" + ".\n"
+                                + "Let's try again, " + returnName + "!");
                     break;
             }
         }
