@@ -21,7 +21,7 @@ application {
 run {
     standardInput = System.in
 }
-group = 'hexlet.code.'
+group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
 
 
