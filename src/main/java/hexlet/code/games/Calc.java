@@ -5,12 +5,12 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Calc {
-    public static void calculation() {
+    public static void calculation(String receivedName) {
         String multiplyString = " * ";
         String plusString = " + ";
         String minusString = " - ";
         String result = "";
-        String returnName = Engine.hello();
+        String returnName = receivedName;
         System.out.println("What is the result of the expression?");
         final int count = 3;
         final int someInt = 12;

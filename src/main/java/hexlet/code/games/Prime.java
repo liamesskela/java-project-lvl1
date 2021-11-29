@@ -5,8 +5,8 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Prime {
-    public static void prime() {
-        String returnName = Engine.hello();
+    public static void prime(String receivedName) {
+        String returnName = receivedName;
         int k = 0;
         final int count = 3;
         final int startRange = 1;

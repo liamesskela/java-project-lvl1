@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Even {
-    public static void even() {
-        String returnName = Engine.hello();
+    public static void even(String receivedName) {
+        String returnName = receivedName;
         System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
         Scanner scanRnd = new Scanner(System.in);
         final int count = 3;

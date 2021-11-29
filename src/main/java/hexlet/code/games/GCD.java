@@ -5,8 +5,8 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class GCD {
-    public static void divider() {
-        String returnName = Engine.hello();
+    public static void divider(String receivedName) {
+        String returnName = receivedName;
         System.out.println("Find the greatest common divisor of given numbers.");
         final int count = 3;
         final int someInt = 100;

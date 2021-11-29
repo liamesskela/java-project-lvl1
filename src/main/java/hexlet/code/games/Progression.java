@@ -5,8 +5,8 @@ import hexlet.code.Engine;
 import java.util.Scanner;
 
 public class Progression {
-    public static void progress() {
-        String returnName = Engine.hello();
+    public static void progress(String receivedName) {
+        String returnName = receivedName;
         System.out.println("What number is missing in the progression?");
         final int countSmall = 3;
         final int countBig = 9;

@@ -1,6 +1,6 @@
 package hexlet.code;
-import hexlet.code.games.*;
 
+import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class App {
@@ -18,46 +18,35 @@ public class App {
     System.out.print("Your choice: ");
     String name = scanNumber.nextLine();
     System.out.println();
-    if (name.equals("1")) {
-      Engine.hello();
-    }
-    if (name.equals("2")) {
-      Even.even();
-    }
-    if (name.equals("3")) {
-      Calc.calculation();
-    }
-    if (name.equals("4")) {
-      GCD.divider();
-    }
-    if (name.equals("5")) {
-      Progression.progress();
-    }
-    if (name.equals("6")) {
-      Prime.prime();
-    }
 
-//    switch(name) {
-//      case "1":
-//        Cli.hello();
-//        break;
-//      case "2":
-//        Even.even();
-//        break;
-//      case "3":
-//        Calc.calculation();
-//        break;
-//      case "4":
-//        GCD.divider();
-//        break;
-//      case "5":
-//        Progression.progress();
-//        break;
-//      case "6":
-//        Prime.prime();
-//        break;
-//      case "0":
-//        break;
-//    }
+    if (name.equals("1")) {
+      Cli.hello();
+        return;
+    }
+    System.out.println("Welcome to the Brain Games!");
+    System.out.print("May I have your name? ");
+    Scanner scanName = new Scanner(System.in);
+    String retString = scanName.nextLine();
+    System.out.println("Hello, " + retString + "!");
+
+    switch(name) {
+      case "0":
+        break;
+      case "2":
+        Even.even(retString);
+        break;
+      case "3":
+        Calc.calculation(retString);
+        break;
+      case "4":
+        GCD.divider(retString);
+        break;
+      case "5":
+        Progression.progress(retString);
+        break;
+      case "6":
+        Prime.prime(retString);
+        break;
+    }
   }
 }

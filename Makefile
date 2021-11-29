@@ -7,12 +7,13 @@ run-dist:
 check-updates:
 	./gradlew dependencyUpdates
 
-make lint:
-	./gradlew checkstyleMain
-
 lint:
 	./gradlew checkstyleMain
+
+clean:
+	./gradlew clean
 
 .PHONY: build
 build:
 	./gradlew clean build
+	./gradlew build
