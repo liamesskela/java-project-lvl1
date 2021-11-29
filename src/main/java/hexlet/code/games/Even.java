@@ -1,52 +1,32 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Even {
-    public static void even(String receivedName) {
-        String returnName = receivedName;
-        System.out.println("Answer 'yes' if number even otherwise answer 'no'.");
-        Scanner scanRnd = new Scanner(System.in);
-        final int count = 3;
-        final int someInt = 1000;
-        int k = 0;
-        int flag = 0;
+    public static void even(String sendNameToEngine) {
+        String sendTermToEngine = "Answer 'yes' if number even otherwise answer 'no'.";
+        final int QUESTIONS = 3;
 
-        for (int i = 0; i < count; i++) {
-            int rnd = (int) (Math.random() * someInt);
-            System.out.println("Question: " + rnd);
-            System.out.print("Your answer: ");
-            String name = scanRnd.nextLine();
-            int numRnd = rnd % 2;
+        Map<String, String> sendQuestionsToEngine = new HashMap<>();
 
-            if (numRnd == 0) {
-                flag = 1;
-            }
-            if (numRnd != 0) {
-                flag = 0;
-            }
-
-            if (name.equals("yes") && numRnd == 0) {
-                System.out.println("Correct!");
-                k++;
-            }
-            if (name.equals("no") && numRnd != 0) {
-                System.out.println("Correct!");
-                k++;
-            }
-
-            if (!name.equals("yes") && numRnd == 0  || !name.equals("no") && numRnd != 0) {
-                    System.out.println("'" + name + "' is wrong answer ;(. Correct answer was "
-                            + "'" +(flag == 1 ? "yes" : "no")+ "'" + ".\n"
-                                + "Let's try again, " + returnName + "!");
-                    break;
-            }
+        for (int questionsGenerate = 0; questionsGenerate < QUESTIONS; questionsGenerate++) {
+            final int randomInt = Utils.getRandomInt();
+            String question = createQuestion(randomInt);
+            String correctAnswer = Utils.booleanToString(generateAnswer(randomInt));
+            sendQuestionsToEngine.put(question, correctAnswer);
         }
-        if (k == count) {
-            System.out.println("Congratulations, " + returnName + "!");
-        }
+        Engine.engineOfGame(sendQuestionsToEngine, sendTermToEngine, sendNameToEngine);
+    }
+
+    public static String createQuestion(int randomInt) {
+        return "Question: " + randomInt;
+    }
+
+    private static boolean generateAnswer(int randomInt) {
+        return randomInt % 2 == 0;
     }
 }

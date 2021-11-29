@@ -23,29 +23,30 @@ public class App {
       Cli.hello();
         return;
     }
+
     System.out.println("Welcome to the Brain Games!");
     System.out.print("May I have your name? ");
     Scanner scanName = new Scanner(System.in);
-    String retString = scanName.nextLine();
-    System.out.println("Hello, " + retString + "!");
+    String sentName = scanName.nextLine();
+    System.out.println("Hello, " + sentName + "!");
 
     switch(name) {
       case "0":
         break;
       case "2":
-        Even.even(retString);
+        Even.even(sentName);
         break;
       case "3":
-        Calc.calculation(retString);
+        Calc.calculation(sentName);
         break;
       case "4":
-        GCD.divider(retString);
+        GCD.divider(sentName);
         break;
       case "5":
-        Progression.progress(retString);
+        Progression.progress(sentName);
         break;
       case "6":
-        Prime.prime(retString);
+        Prime.prime(sentName);
         break;
     }
   }
