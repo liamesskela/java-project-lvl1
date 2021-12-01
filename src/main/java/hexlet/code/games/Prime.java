@@ -1,48 +1,40 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Prime {
-    public static void prime(String receivedName) {
-        String returnName = receivedName;
-        int k = 0;
-        final int count = 3;
-        final int startRange = 1;
-        final int finishRange = 2_147; //_483_647;
-        String yesAnswer = "yes";
-        String noAnswer = "no";
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
 
+    static final int QUESTIONS = 3;
+    static final String sendTermToEngine = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static void prime(String sendNameToEngine) {
 
-        for (int i = 0; i < count; i++) {
-            Scanner scanPrime = new Scanner(System.in);
-            String primeTrueOrFalse = "";
-            int primeRangeResult = (int) (Math.random() * (finishRange - startRange))
-                    + startRange;
-            System.out.println("Question: " + primeRangeResult);
-            System.out.print("Your answer: ");
-            String name = scanPrime.nextLine();
-            for (int j = 2; j <= primeRangeResult / 2; j++) {
-                if (primeRangeResult % j == 0) {
-                    primeTrueOrFalse = "no";
-                    break;
-                } else {
-                    primeTrueOrFalse = "yes";
-                }
-            }
-            if (primeTrueOrFalse.equals(name)) {
-                System.out.println("Correct!");
-                k++;
-            } else {
-                System.out.println("'" + name + "' is wrong answer ;(. Correct answer was '" + primeTrueOrFalse + "'.\n"
-                        + "Let's try again, " + returnName + "!");
-                break;
-            }
-            if (k == count) {
-                System.out.println("Congratulations, " + returnName + "!");
+        Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
+        for (int counter = 0; counter < QUESTIONS; counter++) {
+            final int randomInt = Utils.getRandomInt();
+            final String question = generateQuestion(randomInt);
+            boolean isPrime = generateAnswer(randomInt);
+            sendQuestionsMapToEngine.put(question, Utils.booleanToString(isPrime));
+        }
+        Engine.engineOfGame(sendQuestionsMapToEngine, sendTermToEngine, sendNameToEngine);
+    }
+
+    static String generateQuestion(int randomInt) {
+        return "Question: " + randomInt;
+    }
+
+    private static boolean generateAnswer(int randomInt) {
+        if (randomInt < 2) {
+        return false;
+        }
+        for (int k = 2; k <= Math.sqrt(randomInt); k++) {
+            if ((randomInt % k) == 0) {
+                return false;
             }
         }
+        return true;
     }
 }

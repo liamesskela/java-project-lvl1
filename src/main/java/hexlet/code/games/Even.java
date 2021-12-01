@@ -1,8 +1,6 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,15 +9,16 @@ public class Even {
         String sendTermToEngine = "Answer 'yes' if number even otherwise answer 'no'.";
         final int QUESTIONS = 3;
 
-        Map<String, String> sendQuestionsToEngine = new HashMap<>();
+        Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
 
-        for (int questionsGenerate = 0; questionsGenerate < QUESTIONS; questionsGenerate++) {
+        for (int counter = 0; counter < QUESTIONS; counter++) {
+
             final int randomInt = Utils.getRandomInt();
             String question = createQuestion(randomInt);
             String correctAnswer = Utils.booleanToString(generateAnswer(randomInt));
-            sendQuestionsToEngine.put(question, correctAnswer);
+            sendQuestionsMapToEngine.put(question, correctAnswer);
         }
-        Engine.engineOfGame(sendQuestionsToEngine, sendTermToEngine, sendNameToEngine);
+        Engine.engineOfGame(sendQuestionsMapToEngine, sendTermToEngine, sendNameToEngine);
     }
 
     public static String createQuestion(int randomInt) {

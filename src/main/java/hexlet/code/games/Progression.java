@@ -1,59 +1,48 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Progression {
-    public static void progress(String receivedName) {
-        String returnName = receivedName;
-        System.out.println("What number is missing in the progression?");
-        final int countSmall = 3;
-        final int countBig = 9;
-        int k = 0;
-        String dots = "..";
 
-        for (int i = 0; i < countSmall; i++) {
-            final int rndRangeStart = 1;
-            final int rndRangeFinish = 10;
-            final int rndStartProgression = 1;
-            final int rndFinishProgression = 10;
-            final int rndStartDots = 1;
-            final int rndFinishDots = 10;
-            int progressDotInt = 0;
-            int rndRangeResult = (int) (Math.random() * (rndRangeFinish - rndRangeStart))
-                    + rndRangeStart;
-            int rndProgressionResult = (int) (Math.random() * (rndFinishProgression - rndStartProgression))
-                    + rndStartProgression;
-            int rndDotsResult = (int) (Math.random() * (rndFinishDots - rndStartDots))
-                    + rndStartDots;
-            System.out.print("Question: ");
-            System.out.print(rndProgressionResult + " ");
-            for (int j = 0; j < countBig; j++) {
-                if (j != rndDotsResult) {
-                    rndProgressionResult = rndProgressionResult + rndRangeResult;
-                    System.out.print(rndProgressionResult + " ");
-                } else {
-                    rndProgressionResult = rndProgressionResult + rndRangeResult;
-                    progressDotInt = rndProgressionResult;
-                    System.out.print(dots + " ");
-                }
-            }
-            System.out.println();
-            System.out.print("Your answer: ");
-            Scanner scanInt = new Scanner(System.in);
-            int num = scanInt.nextInt();
-            if (num == progressDotInt) {
-                System.out.println("Correct!");
-                k++;
+    static final String sendTermToEngine = "What number is missing in the progression?";
+    static final int LENGTH_PROGRESSION = 10;
+    static final int MAX_STEP = 12;
+    static final int GENERATE = 3;
+    static public int hiddenNum ;
+    public static void progress(String sendNameToEngine) {
+        Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
+        for (int counter = 0; counter < GENERATE; counter++) {
+
+            int indexOfHiddenNum = Utils.getRandomInt(LENGTH_PROGRESSION);
+            int startNumOfProgression = Utils.getRandomInt();
+            int step = Utils.getRandomInt(MAX_STEP);
+
+            String question = generateQuestion(startNumOfProgression, indexOfHiddenNum, step);
+            sendQuestionsMapToEngine.put(question, String.valueOf(hiddenNum));
+        }
+        Engine.engineOfGame(sendQuestionsMapToEngine, sendTermToEngine, sendNameToEngine);
+    }
+    public static String generateQuestion(int startNumOfProgression, int indexOfHiddenNum, int step) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Question:");
+        for (int counter = 0; counter < LENGTH_PROGRESSION ; counter++) {
+            if (counter == indexOfHiddenNum) {
+                stringBuilder.append(" ..");
+                hiddenNum = startNumOfProgression + (step * counter);
             } else {
-                System.out.println("'" + num + "' is wrong answer ;(. Correct answer was '" + progressDotInt + "'.\n"
-                        + "Let's try again, " + returnName + "!");
-                break;
+                stringBuilder.append(" ").append(calcProgression(startNumOfProgression, step, counter));
             }
         }
-            if (k == countSmall) {
-            System.out.println("Congratulations, " + returnName + "!");
-        }
+        return stringBuilder.toString();
+    }
+
+    static int calcProgression(int begin, int step, int counter) {
+        return begin + (step * counter);
+
     }
 }

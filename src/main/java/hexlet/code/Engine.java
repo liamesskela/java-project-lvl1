@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static void engineOfGame(Map<String, String> questions, String term, String nameOfUser) {
+    public static void engineOfGame( Map<String, String> questions, String term, String nameOfUser) {
         System.out.println(term);
 
         for (Map.Entry<String, String> entry : questions.entrySet()) {
@@ -18,7 +18,8 @@ public class Engine {
                 System.out.println("Correct!");
                 }
             else {
-                System.out.println(receivedAnswer + " is wrong answer ;(. Correct answer was " + entry.getValue());
+                System.out.println("'" + receivedAnswer + "'" + " is wrong answer ;(. " +
+                        "Correct answer was " + "'" +entry.getValue() + "'");
                 System.out.println("Let's try again, " + nameOfUser + "!");
                 return;
                 }
