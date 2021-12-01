@@ -16,22 +16,22 @@ public class Calc {
         Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
         for (int counter = 0; counter < QUESTIONS; counter++) {
 
-            final int random_int_1 = Utils.getRandomInt();
-            final int random_int_2 = Utils.getRandomInt();
+            final int randomInt1 = Utils.getRandomInt();
+            final int randomInt2 = Utils.getRandomInt();
             final int randomCalculation = getRandomOperation();
 
-            String question = generateQuestions(random_int_1, random_int_2, randomCalculation);
-            int correctAnswer = generateAnswers(random_int_1, random_int_2, randomCalculation);
+            String question = generateQuestions(randomInt1, randomInt2, randomCalculation);
+            int correctAnswer = generateAnswers(randomInt1, randomInt2, randomCalculation);
             sendQuestionsMapToEngine.put(question, String.valueOf(correctAnswer));
         }
 
         Engine.engineOfGame(sendQuestionsMapToEngine, sendTermToEngine, sendNameToEngine);
     }
 
-    public static String generateQuestions(int random_Int_1, int random_Int_2, int randomOperation) {
+    public static String generateQuestions(int randomInt1, int randomInt2, int randomOperation) {
 
-        return "Question: " + random_Int_1 + " " + getOperationOfString(randomOperation)
-                + " " + random_Int_2;
+        return "Question: " + randomInt1 + " " + getOperationOfString(randomOperation)
+                + " " + randomInt2;
     }
 
     static int getRandomOperation() {
@@ -52,14 +52,14 @@ public class Calc {
         }
     }
 
-    static int generateAnswers(int random_Int_1, int random_Int_2, int operation) {
+    static int generateAnswers(int randomInt1, int randomInt2, int operation) {
         switch (operation) {
             case 0:
-                return random_Int_1 + random_Int_2;
+                return randomInt1 + randomInt2;
             case 1:
-                return random_Int_1 - random_Int_2;
+                return randomInt1 - randomInt2;
             case 2:
-                return random_Int_1 * random_Int_2;
+                return randomInt1 * randomInt2;
             default:
                 return 0;
         }

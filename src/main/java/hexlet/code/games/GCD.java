@@ -9,7 +9,7 @@ import java.util.Map;
 public class GCD {
 
     static final int GENERATE = 3;
-    static final String sendTermToEngine = "Find the greatest common divisor of given numbers.";
+    static final String SEND_TERM_TO_ENGINE = "Find the greatest common divisor of given numbers.";
 
     public static void divider(String sendNameToEngine) {
 
@@ -17,20 +17,20 @@ public class GCD {
 
         for (int counter = 0; counter < GENERATE; counter++) {
 
-            final int random_Int_1 = Utils.getRandomInt();
-            final int random_Int_2 = Utils.getRandomInt();
+            final int randomInt1 = Utils.getRandomInt();
+            final int randomInt2 = Utils.getRandomInt();
 
-            final String question = generateQuestion(random_Int_1, random_Int_2);
-            final int correctAnswer = generateAnswer(random_Int_1, random_Int_2);
+            final String question = generateQuestion(randomInt1, randomInt2);
+            final int correctAnswer = generateAnswer(randomInt1, randomInt2);
 
             sendQuestionsMapToEngine.put(question, String.valueOf(correctAnswer));
 
         }
-        Engine.engineOfGame(sendQuestionsMapToEngine, sendTermToEngine, sendNameToEngine);
+        Engine.engineOfGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE, sendNameToEngine);
     }
 
-    static String generateQuestion(int random_Int_1, int random_Int_2) {
-        return "Question: " + random_Int_1 + " " + random_Int_2;
+    static String generateQuestion(int randomInt1, int randomInt2) {
+        return "Question: " + randomInt1 + " " + randomInt2;
     }
 
     static int generateAnswer(int x, int y) {
