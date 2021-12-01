@@ -13,7 +13,7 @@ repositories {
     mavenCentral()
 }
 compileJava {
-  options.release = 17
+  options.release = 15
 }
 application {
   mainClass = 'hexlet.code.App'
