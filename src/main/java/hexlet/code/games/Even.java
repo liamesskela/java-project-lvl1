@@ -10,8 +10,6 @@ public class Even {
 
     public static void even() {
 
-
-
         Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
 
         for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
