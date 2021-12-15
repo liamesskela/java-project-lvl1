@@ -11,6 +11,7 @@ public class Progression {
     static final int LENGTH_PROGRESSION = 10;
     static final int MAX_STEP = 12;
     private static int hiddenNum;
+
     public static void progress() {
         Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
         for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
@@ -29,7 +30,7 @@ public class Progression {
         StringBuilder stringBuilder = new StringBuilder();
         for (int counter = 0; counter < LENGTH_PROGRESSION; counter++) {
             if (counter == indexOfHiddenNum) {
-                stringBuilder.append(" ..");
+                stringBuilder.append("..");
                 hiddenNum = startNumOfProgression + (step * counter);
             } else {
                 stringBuilder.append(" ").append(calcProgression(startNumOfProgression, step, counter));
