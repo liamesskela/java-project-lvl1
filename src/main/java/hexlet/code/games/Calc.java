@@ -8,13 +8,13 @@ import java.util.Map;
 import java.util.Random;
 
 public class Calc {
-    static final int QUESTIONS = 3;
-    static final int OPERATIONS = 3;
 
-    public static void calculation(String sendNameToEngine) {
-        String sendTermToEngine = " What is the result of the expression?";
+    static final int OPERATIONS = 3;
+    static final String SEND_TERM_TO_ENGINE = "What is the result of the expression?";
+    public static void calculation() {
+
         Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
-        for (int counter = 0; counter < QUESTIONS; counter++) {
+        for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
 
             final int randomInt1 = Utils.getRandomInt();
             final int randomInt2 = Utils.getRandomInt();
@@ -25,13 +25,13 @@ public class Calc {
             sendQuestionsMapToEngine.put(question, String.valueOf(correctAnswer));
         }
 
-        Engine.engineOfGame(sendQuestionsMapToEngine, sendTermToEngine, sendNameToEngine);
+        Engine.runGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE);
     }
 
     public static String generateQuestions(int randomInt1, int randomInt2, int randomOperation) {
 
-        return "Question: " + randomInt1 + " " + getOperationOfString(randomOperation)
-                + " " + randomInt2;
+        return String.valueOf(randomInt1) + " " + getOperationOfString(randomOperation)
+                + " " + String.valueOf(randomInt2);
     }
 
     static int getRandomOperation() {

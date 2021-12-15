@@ -8,14 +8,13 @@ import java.util.Map;
 
 public class GCD {
 
-    static final int GENERATE = 3;
     static final String SEND_TERM_TO_ENGINE = "Find the greatest common divisor of given numbers.";
 
-    public static void divider(String sendNameToEngine) {
+    public static void divider() {
 
         Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
 
-        for (int counter = 0; counter < GENERATE; counter++) {
+        for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
 
             final int randomInt1 = Utils.getRandomInt();
             final int randomInt2 = Utils.getRandomInt();
@@ -26,11 +25,11 @@ public class GCD {
             sendQuestionsMapToEngine.put(question, String.valueOf(correctAnswer));
 
         }
-        Engine.engineOfGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE, sendNameToEngine);
+        Engine.runGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE);
     }
 
     static String generateQuestion(int randomInt1, int randomInt2) {
-        return "Question: " + randomInt1 + " " + randomInt2;
+        return String.valueOf(randomInt1) + " " + String.valueOf(randomInt2);
     }
 
     static int generateAnswer(int x, int y) {
