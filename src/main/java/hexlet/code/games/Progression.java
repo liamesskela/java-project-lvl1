@@ -30,7 +30,7 @@ public class Progression {
         StringBuilder stringBuilder = new StringBuilder();
         for (int counter = 0; counter < LENGTH_PROGRESSION; counter++) {
             if (counter == indexOfHiddenNum) {
-                stringBuilder.append(" ..");
+                stringBuilder.append("..");
                 hiddenNum = startNumOfProgression + (step * counter);
             } else {
                 stringBuilder.append(" ").append(calcProgression(startNumOfProgression, step, counter));
