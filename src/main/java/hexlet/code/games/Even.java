@@ -23,10 +23,10 @@ public class Even {
     }
 
     public static String createQuestion(int randomInt) {
-        return String.valueOf(randomInt);
+        return " " + randomInt;
     }
 
-    private static boolean generateAnswer(int randomInt) {
+    static boolean generateAnswer(int randomInt) {
         return randomInt % 2 == 0;
     }
 }

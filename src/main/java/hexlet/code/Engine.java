@@ -16,7 +16,7 @@ public class Engine {
         System.out.println("Hello, " + sentName + "!");
         System.out.println(term);
         for (Map.Entry<String, String> questionAndAnswer : questionsToAnswers.entrySet()) {
-            System.out.println("Question: " + questionAndAnswer.getKey());
+            System.out.println("Question:" + questionAndAnswer.getKey());
             System.out.print("Your answer: ");
             Scanner scanAnswer = new Scanner(System.in);
             String receivedAnswer = scanAnswer.next();

@@ -29,7 +29,7 @@ public class GCD {
     }
 
     static String generateQuestion(int randomInt1, int randomInt2) {
-        return String.valueOf(randomInt1) + " " + String.valueOf(randomInt2);
+        return " " + randomInt1 + " " + randomInt2;
     }
 
     static int generateAnswer(int x, int y) {

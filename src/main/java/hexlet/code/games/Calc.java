@@ -30,8 +30,8 @@ public class Calc {
 
     public static String generateQuestions(int randomInt1, int randomInt2, int randomOperation) {
 
-        return String.valueOf(randomInt1) + " " + getOperationOfString(randomOperation)
-                + " " + String.valueOf(randomInt2);
+        return " " + randomInt1 + " " + getOperationOfString(randomOperation)
+                + " " + randomInt2;
     }
 
     static int getRandomOperation() {

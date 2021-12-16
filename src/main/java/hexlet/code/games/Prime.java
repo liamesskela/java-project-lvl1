@@ -20,7 +20,7 @@ public class Prime {
     }
 
     static String generateQuestion(int randomInt) {
-        return String.valueOf(randomInt);
+        return " " + randomInt;
     }
 
     private static boolean generateAnswer(int randomInt) {
