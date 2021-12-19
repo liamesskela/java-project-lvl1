@@ -11,7 +11,7 @@ public class Progression {
     static final int LENGTH_PROGRESSION = 10;
     static final int MAX_STEP = 12;
 
-    public static int toNowHiddenNum(int startNumOfProgression, int indexOfHiddenNum, int step) {
+    public static int toKnowHiddenNum(int startNumOfProgression, int indexOfHiddenNum, int step) {
         return startNumOfProgression + step * indexOfHiddenNum;
     }
     public static void progress() {
@@ -21,7 +21,7 @@ public class Progression {
             int indexOfHiddenNum = Utils.getRandomInt(LENGTH_PROGRESSION);
             int startNumOfProgression = Utils.getRandomInt();
             int step = Utils.getRandomInt(MAX_STEP);
-            int hiddenNum = toNowHiddenNum(startNumOfProgression, indexOfHiddenNum, step);
+            int hiddenNum = toKnowHiddenNum(startNumOfProgression, indexOfHiddenNum, step);
             String question = generateQuestion(startNumOfProgression, indexOfHiddenNum, step);
             questionToAnswer.put(question, String.valueOf(hiddenNum));
         }
