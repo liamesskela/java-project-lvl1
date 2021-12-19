@@ -12,27 +12,27 @@ public class GCD {
 
     public static void divider() {
 
-        Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
+        Map<String, String> questionToAnswer = new HashMap<>();
 
         for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
 
             final int randomInt1 = Utils.getRandomInt();
             final int randomInt2 = Utils.getRandomInt();
 
-            final String question = generateQuestion(randomInt1, randomInt2);
-            final int correctAnswer = generateAnswer(randomInt1, randomInt2);
+            final String question = buildQuestion(randomInt1, randomInt2);
+            final int correctAnswer = findGDC(randomInt1, randomInt2);
 
-            sendQuestionsMapToEngine.put(question, String.valueOf(correctAnswer));
+            questionToAnswer.put(question, String.valueOf(correctAnswer));
 
         }
-        Engine.runGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE);
+        Engine.runGame(questionToAnswer, SEND_TERM_TO_ENGINE);
     }
 
-    static String generateQuestion(int randomInt1, int randomInt2) {
+    static String buildQuestion(int randomInt1, int randomInt2) {
         return " " + randomInt1 + " " + randomInt2;
     }
 
-    static int generateAnswer(int x, int y) {
+    static int findGDC(int x, int y) {
         while (x != 0 && y != 0) {
             if (x > y) {
                 x = x % y;

@@ -10,10 +10,10 @@ import java.util.Random;
 public class Calc {
 
     static final int OPERATIONS = 3;
-    static final String SEND_TERM_TO_ENGINE = "What is the result of the expression?";
+    static final String RULES = "What is the result of the expression?";
     public static void calculation() {
 
-        Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
+        Map<String, String> questionToAnswer = new HashMap<>();
         for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
 
             final int randomInt1 = Utils.getRandomInt();
@@ -21,11 +21,11 @@ public class Calc {
             final int randomCalculation = getRandomOperation();
 
             String question = generateQuestions(randomInt1, randomInt2, randomCalculation);
-            int correctAnswer = generateAnswers(randomInt1, randomInt2, randomCalculation);
-            sendQuestionsMapToEngine.put(question, String.valueOf(correctAnswer));
+            int correctAnswer = calculate(randomInt1, randomInt2, randomCalculation);
+            questionToAnswer.put(question, String.valueOf(correctAnswer));
         }
 
-        Engine.runGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE);
+        Engine.runGame(questionToAnswer, RULES);
     }
 
     public static String generateQuestions(int randomInt1, int randomInt2, int randomOperation) {
@@ -52,7 +52,7 @@ public class Calc {
         }
     }
 
-    static int generateAnswers(int randomInt1, int randomInt2, int operation) {
+    static int calculate(int randomInt1, int randomInt2, int operation) {
         switch (operation) {
             case 0:
                 return randomInt1 + randomInt2;

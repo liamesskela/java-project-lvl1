@@ -7,31 +7,34 @@ import java.util.Map;
 
 public class Progression {
 
-    static final String SEND_TERM_TO_ENGINE = "What number is missing in the progression?";
+    static final String RULES = "What number is missing in the progression?";
     static final int LENGTH_PROGRESSION = 10;
     static final int MAX_STEP = 12;
-    private static int hiddenNum;
 
+    public static int toNowHiddenNum(int startNumOfProgression, int indexOfHiddenNum, int step) {
+        return startNumOfProgression + step * indexOfHiddenNum;
+    }
     public static void progress() {
-        Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
+        Map<String, String> questionToAnswer = new HashMap<>();
         for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
 
             int indexOfHiddenNum = Utils.getRandomInt(LENGTH_PROGRESSION);
             int startNumOfProgression = Utils.getRandomInt();
             int step = Utils.getRandomInt(MAX_STEP);
-
+            int hiddenNum = toNowHiddenNum(startNumOfProgression, indexOfHiddenNum, step);
             String question = generateQuestion(startNumOfProgression, indexOfHiddenNum, step);
-            sendQuestionsMapToEngine.put(question, String.valueOf(hiddenNum));
+            questionToAnswer.put(question, String.valueOf(hiddenNum));
         }
-        Engine.runGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE);
+        Engine.runGame(questionToAnswer, RULES);
     }
+
+
     public static String generateQuestion(int startNumOfProgression, int indexOfHiddenNum, int step) {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (int counter = 0; counter < LENGTH_PROGRESSION; counter++) {
             if (counter == indexOfHiddenNum) {
                 stringBuilder.append(" ..");
-                hiddenNum = startNumOfProgression + (step * counter);
             } else {
                 stringBuilder.append(" ").append(calcProgression(startNumOfProgression, step, counter));
             }

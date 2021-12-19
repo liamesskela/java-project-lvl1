@@ -6,27 +6,27 @@ import java.util.Map;
 
 public class Even {
 
-    static final String SEND_TERM_TO_ENGINE = "Answer 'yes' if number even otherwise answer 'no'.";
+    static final String RULES = "Answer 'yes' if number even otherwise answer 'no'.";
 
     public static void even() {
 
-        Map<String, String> sendQuestionsMapToEngine = new HashMap<>();
+        Map<String, String> questionToAnswer = new HashMap<>();
 
         for (int counter = 0; counter < Engine.QUESTIONS; counter++) {
 
             final int randomInt = Utils.getRandomInt();
             String question = createQuestion(randomInt);
-            String correctAnswer = Utils.booleanToString(generateAnswer(randomInt));
-            sendQuestionsMapToEngine.put(question, correctAnswer);
+            String correctAnswer = Utils.booleanToString(isEven(randomInt));
+            questionToAnswer.put(question, correctAnswer);
         }
-        Engine.runGame(sendQuestionsMapToEngine, SEND_TERM_TO_ENGINE);
+        Engine.runGame(questionToAnswer, RULES);
     }
 
     public static String createQuestion(int randomInt) {
         return " " + randomInt;
     }
 
-    static boolean generateAnswer(int randomInt) {
+    static boolean isEven(int randomInt) {
         return randomInt % 2 == 0;
     }
 }
